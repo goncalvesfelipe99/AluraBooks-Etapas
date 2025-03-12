@@ -1,0 +1,41 @@
+/* Estamos 'linkando' os arquivos de estilo aqui (styles.css), pois assim não irá ficar enchendo de 'links' o arquivo 'index.html'.E, também, porque será mais rápido importarmos os arquivos aqui, pois será mais rápido na hora de 'rodar' o programa; Assim que 'subir' o "styles.css" os outros arquivos da pasta "styles" 'subiram' juntos.*/
+
+@import url("styles/header.css"); 
+@import url("styles/banner.css");
+@import url("styles/carrossel.css");
+@import url("styles/tópicos.css");
+@import url("styles/contato.css");
+@import url("styles/rodapé.css");
+
+:root{
+
+    --cor-de-fundo:#EBECEE;
+    --branco:#FFFFFF;
+    --laranja:#EB9B00;
+    --azul-degrade: linear-gradient(97.54deg, #002F52 35.49%, #326589 165.37%);
+    --azul-escuro:#002F52;
+    --preto:#000000;
+    --fonte-principal:"Poppins";
+    --fonte-secundária:"Josefin Sans";
+    --cinza: #858585;
+    --cinza-escuro: #474646;
+    --fonte-principal:"Poppins";
+    --fonte-secundaria:"Josefin Sans";
+
+
+}
+
+body{
+
+    background-color: var(--cor-de-fundo);
+    font-family:var(--fonte-principal); /*Como a maioria do nosso projeto tem de font-family Poppins, estamos inserindo como padrão o mesmo.*/
+    font-size: 1em; /*Como a maioria do font-size do nosso projeto é de 16px, vamos inserir como padrão o su equivalente em unidade relativa. Ou seja, 1em.*/
+    font-weight:400; /*Regular*/
+}
+
+/* - FIGMA UTILIZADO 
+https://www.figma.com/design/ACKt1tlZ9CcsNimcmfU4HN/HTML-e-CSS%3A-responsividade-com-mobile-first-%7C-AluraBooks-(Community)?node-id=122-4916&t=wXn5ED1LK7GVzf3A-0*/
+
+/*Pesos das fontes (Font-weight)
+Light:300 - Regular:400 - Medium:500 - Bold:700*/
+/* 143809 */

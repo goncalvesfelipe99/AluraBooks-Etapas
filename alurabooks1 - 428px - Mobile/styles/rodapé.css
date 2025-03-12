@@ -1,0 +1,8 @@
+hr {
+    margin:0; /*Zerando a margem desse quebrador de linha*/
+}
+
+.rodapé {
+    background-color:var(--branco);
+    padding:1em; /*Espaçamento da borda para dentro de 1em para todos os lados. */
+}

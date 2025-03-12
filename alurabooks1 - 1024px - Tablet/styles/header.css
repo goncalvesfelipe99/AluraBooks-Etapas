@@ -1,0 +1,201 @@
+
+/*Ao construir o header da aplicação, o transformamos em um flex-container através da propriedade display: flex. Consequentemente, seus filhos (os elementos que estavam dentro dele) viraram flex-itens e por padrão eles ficaram alinhados em linha, ou seja, um ao lado do outro.*/
+
+
+
+.cabeçalho__menu-hamburguer {
+    width:24px; /*Necessário para que apareça o logo do "Menu". Poderia ser outro tamanho também.*/
+    height:24px; /*Necessário para que apareça o logo do "Menu".Poderia ser outro tamanho também.*/
+    background-image:url("../img/Menu.svg"); /*A"url" é utilizada para selecionarmos o diretório onde está essa imagem.
+    - Utilizamos a propriedade 'background-image' para que a imagem do "Menu.svg" aparecesse.
+    - Colocamos '2 pontos' para que ela volte, pois o "header.css" está dentro da pasta "styles", e se nós ñ colocassémos estes '2 pontos' ele iria procurar uma pasta "img" dentro da pasta "styles", e é o que não tem. Então com os 2 pontos ele voltou para pasta 'ALURABOOKS1', conseguiu ir na pasta "img" e encontrou o "Menu.svg."*/
+    display: inline-block; /*Necessário para que apareça o logo do "Menu"
+    Atribuímos a propriedade "display" o valor "inline-block", pois se fosse somente 'inline' ele não nos iria permitir os ajustes de largura e altura que fizemos. Assim, colocando o valor "inline-block" nós conesguimos fazer esses ajustes.*/
+
+    /*Feito após container__imagem*/
+
+    background-repeat:no-repeat; /*Estamos utilizando essa propriedade com este valor, porque quando a imagem do "Menu.svg" estava passando do valor que colocamos de largura e de altura, a mesma começou a se repetir. Assim, parecendo uma imagem diferente do que desejávamos.*/
+    background-position: center; /*Para posicionarmos a imagem do "Menu.svg" ao centro, temos que utilizar essa propriedade com este valor.*/
+
+
+    
+    
+
+
+}
+
+.cabeçalho {
+    background-color:var(--branco); /*Cor de fundo de tela - cabeçalho */
+    display: flex; /*Habilitamos o Flexbox para organizar os elementos dessa classe. Assim, transformando o cabeçalho (header) em 'flex-container' e as divs (elementos filhos) em 'flex-itens'.*/
+    justify-content: space-between; /*Estamos utilizando essa propriedade do Flexbox com este valor para separar os elementos 'filhos' que são as duas divs container. Separando cada elemento com o mesmo espaço entre eles; 2 para esquerda e 3 para direita.
+    justify-content: define como o navegador irá distribuir o espaço entre os flex-itens.*/
+    align-items: center; /*Alinhando os ícones ao centro da linha. Ou seja, cada 'flex-itens' estão ao centro da linha.
+    align-items: especifica o alinhamento dos itens dentro de um flex-container*/
+    
+    /* - FEITO APÓS A CONFIGURAÇÃO ':CHECKED'*/
+
+    position: relative;  /*A lista esta ao lado do botão, e ñ é a posição correta. Queremos a lista abaixo do botão. Para isso, temos que utilizar a propriedade "position" no qual, iremos atribuir o valor de "relative" a mesma. 
+    Estamos inserindo esses dados nesta classe, pois é estamos no elemento 'pai'. Assim, poderemos habilitar uma outra configuração de position no elemento 'filho' que é a classe "lista-menu".*/
+    /*Resumindo: O "postion: relative" libera a opção da gente colocar outros atributos como top, bottom, left e right*/
+    
+
+
+}
+
+.container {
+    display: flex;
+    align-items: center; /*Alinhando os elementos ao centro da linha.*/
+
+    
+}
+
+.container__imagem {
+    padding: 1em; /*Espaçamento entre os elementos (ícones) da borda para dentro. Utilizando unidade relativa.
+    colocando o padding de 1em, como o que inserimos, os espaçamentos ficaram iguais nas laterais, no topo e embaixo.*/
+}
+
+.lista-menu {
+    display:none; /*Com o display com valor "none" nós retiramos a lista para que ela não ocupe espaço. Mas na próxima configuração temos que fazer ela aparecer novamente através do clique.*/
+
+     /* - FEITO APÓS A CONFIGURAÇÃO DA "POSITION:RELATIVE". - CABEÇALHO*/
+
+    position:absolute; /*Agora habilitado o position no 'elemento pai' (.cabeçalho), podemos fazer alteração na posição da lista. Portanto, inserimos a propriedade "position" com o valor "absolute" para podermos fazer esta configuração.*/
+    /*Resumindo: O "postion: absolute" permite que nós movimentemos os elementos de acordo com o que veio antes (elemento pai) e que tenha uma 'position' diferente de estático, como é o caso de agora.*/
+
+    top:100%; /*Fazendo assim, tiramos 100% do topo do cabeçalho e a lista veio para baixo. Ou seja, ocupamos 100% do espaço do topo e, assim, forçando a lista para baixo.
+    Para deixar o menu para baixo do seu ícone vamos utilizar uma propriedade chamada top e o valor 100%, ou seja, o topo deste elemento deve estar 100% depois do cabeçalho.*/
+
+    /* - FEITO APÓS A CONFIGURAÇÃO DA LISTA-MENU__LINK */
+
+    width: 60vw; /*Vimos no Figma que o tamanho da lista era um pouco maior, por isso demos este valor de largura de VIEWPORT. Fazendo assim a lista ocupar 60% da tela.
+    Já a propriedade de largura width deve conter a sua unidade de medida como vw que significa view width, ou seja, a largura da tela. Sendo assim, 60vw significa 60% da tela que está acessando a página.*/
+}
+
+.container__botão:checked ~ .lista-menu {
+    /*Estamos fazendo uma configuração para que nós consigamos verificar se a "caixa de seleção" está clicada ou não, e, a partir daí, fazermos a lista aparecer. Para isso, estamos utilizando uma pseudoclasse chamada ":checked". Logo, ela serve para que verifique se há uma situação de clique ou não na entrada checkbox; Se acaso houver, a lista aparece, senão, ela continua sem aparecer.
+    Importante ressaltar que é necessário utilizar o combinador CSS para essa configuração. O combinador CSS tem por simbologia o tíl ("~"). O mesmo tem por função procurar um outro elemento que vem em seguida do elemento anterior já SELECIONADO, no nosso caso é a classe "container__botão". É como se fosse uma condicional if' que utilizamos em outras linguagens. Exemplo:
+    Se o botão estiver 'checked' procure o outro elemento depois dele e faça a combinação.
+    Sequência do que fazer:
+    Primeiro: selecionamos a entrada (input) pela sua classe; 
+    Segundo: utilizaremos a pseudoclasse :checked para que verifique se a situação de clique;
+    Terceiro: inserimos o combinador CSS "~". E, por fim, selecionamos a lista pela sua classe.*/
+    display: block; /*Feito a configuração acima, agora é só dar display com o valor "block" para que a lista apareça novamente.*/
+
+}
+
+
+
+.lista-menu__título, 
+.lista-menu__item {
+    
+    /* - FEITO APÓS A CONFIGURAÇÃO DA "POSITION:ABSOLUTE". - LISTA-MENU */
+
+    padding: 1em; /*colocando o padding correto que inseriu um espaçamento igual de 1em nas laterais, no topo e embaixo de cada item do menu.*/
+    background-color: var(--branco);
+}
+
+.lista-menu__título{
+
+    /* - FEITO APÓS A CONFIGURAÇÃO DA LISTA-MENU__TÍTULO & ITEM */
+
+    color:var(--laranja);
+    font-weight:700; /*Bold*/
+}
+
+.lista-menu__link{
+
+    /* - FEITO APÓS A CONFIGURAÇÃO DA LISTA-MENU__TÍTULO */
+    text-decoration:none;
+    background: var(--azul-degrade); /*Estamos utilizando essa propriedade para inserir nos textos doS linkS esta cor linear-gradient.Pois esta cor é uma COR LINEAR, e para funcionar é necessário utilizar esta propriedade. Pois com a propriedade COLOR não funcionará.  
+    Porém, esta propriedade NÃO APLICA NA FONTE, e, para isso será necessário fazermos mais configurações como é que estão abaixo.*/
+    background-clip: text; /*Agora estamos utilizando esta propriedade com o valor "text" para 'prender' essa cor linear somente aonde possuir texto. Assim, ele ficará aplicado.*/
+    -webkit-background-clip: text; /*Estamos utilizando essas propriedades para que funcione esta aplicação que fizemos em outros tipos de navegadores. Por exemplo: Edge, Firefox, Opera, etc...*/
+    -webkit-text-fill-color: transparent; /*Estamos utilizando essas propriedades para que funcione esta aplicação que fizemos em outros tipos de navegadores. Por exemplo: Edge, Firefox, Opera, etc...*/
+    text-transform: uppercase; /*Conforme vimos no Figma, os textos estão em maiúsculo, portanto, utilizamos esta propriedade com este valor.*/
+    
+
+    
+    
+}
+
+.container__botão {
+
+    /*Feito após a font-weight da classe list-menu__título*/
+
+    display:none; /*Estamos 'retirando' da tela do nosso projeto o checkbox. */
+}
+
+.container__título {
+    display: none; /*Retirar o título. Somente irá aparecer na @media query*/
+    
+}
+
+.opções {
+    display:none; /*Retirar "opções" da tela. Somente aparecerá na @media query*/
+}
+
+@media screen and (min-width: 1024px) {
+
+    /*Estamos usando a media query para aplicar um novo estilo para a nossa página web quando a mesma chegar no mínimo de largura de 1024px (Tablet).
+    Estamos colocando como 'min-width', porque começamos o nosso projeto fazendo por 'mobile-first', ou seja, começamos a fazendo por uma tela de celular. Quando começarmos fazendo por 'desktop-first', o mesmo se altera e faríamos por 'max-width'. */
+
+    .container__título, 
+    .container__título--negrito {
+        font-family:var(--fonte-secundária);
+        font-size: 30px;
+    }
+
+    .container__título {
+        font-weight: 400; /*Regular*/ /*Books*/
+        display: block; /*Estamos dando esse valor para display para que o título apareça quando a largura da tela alcançar 1024px.*/
+        
+    }
+
+
+    .container__título--negrito {
+        font-weight: 700; /*Bold*/ /*Alura*/
+    }
+
+    .opções {
+        display: flex; /*Por padrão o Flexbox deixa suas flex-itens em linha, portanto foi por isso que o inserimos aqui; para que os links fiquem em linha ao invés de coluna */
+        /*Já auxilia para que apareça na tela quando a tela alcançar 1024px*/
+        
+    }
+
+    .opções__item {
+        padding: 0 1em; /*Lugar correto para separar um item do outro. 
+        Espaçamento da borda para dentro em 0 top e bottom e de 1em para as laterais right e left. Ou seja, espaçando os links lateralmente um do outro.*/
+        text-transform: uppercase;
+        
+    }
+
+    .opções__link {
+        color:var(--preto);
+        text-decoration:none; /*Retira o sublinhado da âncora*/
+        
+    }
+
+    .container__imagem-transparente {
+        display: none; /*Para que não apareça a imagem de Favoritos em 1024px - Tablet*/
+    }
+
+    .cabeçalho__menu-hamburguer {
+        display:none; /*Para que não apareça a imagem do Menu em 1024px;*/
+    }
+
+    .opções__botão:checked ~ .lista-menu {
+        /*Se o botão Categoria estiver clicado, combine com a lista-menu e apareça na tela*/
+        display: block;
+        width:auto; /*Utilizamos o valor 'auto' para o width para que a lista se acomode e ocupe somente espaço abaixo em que esta o título "Categorias"*/
+    }
+
+    .opções__botão {
+        display: none; /*Para que a caixa de seleção não apareça*/
+
+    }
+
+    
+
+
+    
+}

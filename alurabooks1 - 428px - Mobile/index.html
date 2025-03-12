@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alurabook1</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Krona+One&family=Lobster&family=Montserrat:wght@400;600&family=Poppins:wght@300;400;500;700&family=Salsa&display=swap" rel="stylesheet"> <!--Uma fonte externa é utilizada em nosso site através de uma associação de estilo css utilizando a tag <link> e deve estar sempre dentro da tag <head> e a tag de estilo.-->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/><!--Estamos colocando antes do styles.css por causa de sobreescrita.Ou seja, colocando eses dados do swiperjs depois do styles.css poderia acarretar as configurações do mesmo. Assim, não sobreescrvendo os nosso estilos..-->
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+<body>
+    <header class="cabeçalho">
+      <div class="container">
+
+        <!--Selecionamos uma entrada de tipo "caixa de seleção" que detecta quando a gente clica e o mantém preenchido. Ou seja, ela guarda a 'situação de clique'.-->
+        <input type="checkbox" id="menu" class="container__botão"> 
+
+        <!--Estamos utilizando essa tag label (etiqueta) porque ele serve para associar todos os elementos dentro dele com um outro elemento através do id.Ou seja, ele está associando a tag span que está dentro dele para um outro elemento que tem o id "menu".Que nesse caso é a entrada tipo checkbox.-->
+         <label for="menu">
+          <!--Ao usar o atributo for, com o valor igual ao id do input, você está associando a label com o input. Dessa maneira, ao clicar na imagem que está dentro dessa label, irá interagir com o checkbox, fazendo essa detecção do clique do usuário.-->
+          <span class="cabeçalho__menu-hamburguer container__imagem"></span>
+         </label>
+
+         <!--Porém, não basta detectar o clique, pois conforme o figma, nós queremos que apareça uma lista. Portanto, vamos criá-la.-->
+         <!--Para criar a lista estamos usando a tag "ul"-->
+         <ul class="lista-menu">
+
+          <!--Para os itens (tópicos) da lista estamos usando as tags "li's"-->
+          <!--Conforme o Figma, ao interpretarmos o mesmo, vimos que o primeiro texto dessa lista refere-se a um título e os outros são os itens destar lista que redericonam para uma outra página. Portanto, links.-->
+          <li class="lista-menu__título">Categorias</li>
+          <li class="lista-menu__item">
+            <a href="#" class="lista-menu__link">Programação</a>
+          </li>
+          <li class="lista-menu__item">
+            <a href="#" class="lista-menu__link">Front-End</a>
+          </li>
+          <li class="lista-menu__item">
+            <a href="#" class="lista-menu__link">Infraestrutura</a>
+          </li>
+          <li class="lista-menu__item">
+            <a href="#" class="lista-menu__link">Business</a>
+          </li>
+          <li class="lista-menu__item">
+            <a href="#" class="lista-menu__link">Design & UX</a>
+          </li>
+         </ul>
+
+         
+          <img class="container__imagem" src="img/Logo.svg" alt="Logo Alurabooks1">
+      </div>
+      <div class="container">
+        <a class="container__imagem" href="#"><img src="img/Favoritos.svg" alt="Meus Favoritos"></a>
+        <a class="container__imagem" href="#"><img src="img/Compras.svg" alt="Carrinho de Compras"></a>
+        <a class="container__imagem" href="#"><img src="img/Usuário.svg" alt="Meu perfil"></a>
+      </div>
+    </header>
+    <!--Criamos uma section para separar o banner do header.-->
+      <section class="banner"> 
+        <!--Utilizamos o h2, pois não é o título principal.-->
+        <h2 class="banner__título">Já sabe por onde começar?</h2>
+        <p class="banner__texto">Encontre em nossa estante o que precisa para seu desenvolvimento!</p>
+        <!--Inserimos uma entrada de tipo pesquisa, conforme o Figma. E ele possue um atributo chamado 'placeholder' que é utilizado para deixar um texto dentro dele, porém ao clicar neste campo o texto some.-->
+        <input type="search" class="banner__pesquisa" placeholder="Qual será sua próxima leitura?">
+      </section>
+      <section class="carrossel">
+        <h2 class="carrossel__título">Últimos Lançamentos</h3>
+          <!-- Slider main container -->
+           <!--O que é o Swiper?
+O Swiper é um plugin e uma biblioteca que podemos importar externamente através das redes de distribuição (CDN). Ou seja, em vez de ter que baixar vários arquivos que levam à construção desse carrossel, importamos somente dois arquivos:
+
+1 - O styles através do <link> e
+2 - Os arquivos JavaScript através da <script>.
+Ou seja, fizemos a escavação em duas linhas, e depois só adaptamos o HTML para ficar com as imagens que queremos.
+
+Precisaremos usar um trecho de JavaScript, mas nada avançado. Talvez precisemos usar o inglês, mas é possível o tradutor, porque o nome dos elementos que vamos aplicar explica literalmente qual é a função deles.
+
+Se queremos adicionar algo mais trabalhoso e não sabemos fazer, porque precisaria de um script de linguagem de programação, e só sabemos HTML e CSS, é possível fazer essas importações. Também é interessante entender a questão do CDN porque quando aprendermos algum framework, podemos importar uma lib (biblioteca) desse jeito também.-->
+        <div class="swiper">
+           <!-- If we need pagination -->
+        <div class="swiper-pagination"></div> <!--Diferente do vídeo da aula, o local correto é aqui onde colocamos o swiper-pagination.-->
+        <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide"><img src="img/ApacheKafka.svg" alt="Livro sobre ApacheKafka"></div>
+          <div class="swiper-slide"><img src="img/Javascript.svg" alt="Livro sobre JavaScript"></div>
+          <div class="swiper-slide"><img src="img/Portugol.svg" alt="Livro sobre Portugol"></div>
+          <div class="swiper-slide"><img src="img/Liderança.svg" alt="Livro sobre Liderança"></div>
+          <div class="swiper-slide"><img src="img/Guia Front-end.svg" alt="Guia sobre Front-End"></div>
+    ...
+        </div>
+       
+
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+
+        <!-- If we need scrollbar -->
+        <!-- <div class="swiper-scrollbar"></div> -->
+        </div>
+
+        <div class="card">
+          <!--1°linha-->
+          <div class="card__descrição">
+            <!--1°coluna-->
+            <div class="descrição">
+              <h3 class="descrição__título">Talvez você também se interesse por...</h3>
+              <h2 class="descrição__título-livro">Angular 11 e Firebase</h2> <!--Colocamos como título mais importante, pois esta com o nome do livro-->
+              <p class="descrição__texto">Construindo uma aplicação integrada com a plataforma do Google.</p>
+            </div>
+            <!--2°coluna-->
+            <img src="img/Angular.svg">
+          </div>
+            
+          <!--2°linha-->
+          <div class="card__botões">
+            <!--1°coluna-->
+            <ul class="botões">
+              <li class="botões__item"><img src="img/Favoritos.svg" alt="Favoritar livros"></li>
+              <li class="botões__item"><img src="img/Compras.svg" alt="Carrinho de Compras"></li>
+            </ul>
+            <!--2°coluna-->
+            <a href="#" class="botões__âncora">Saiba Mais</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="carrossel">
+        <h2 class="carrossel__título">Mais Vendidos</h3>
+          
+        <div class="swiper">
+           <!-- If we need pagination -->
+        <div class="swiper-pagination"></div> <!--Diferente do vídeo da aula, o local correto é aqui onde colocamos o swiper-pagination.-->
+        <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide"><img src="img/ApacheKafka.svg" alt="Livro sobre ApacheKafka"></div>
+          <div class="swiper-slide"><img src="img/Javascript.svg" alt="Livro sobre JavaScript"></div>
+          <div class="swiper-slide"><img src="img/Portugol.svg" alt="Livro sobre Portugol"></div>
+          <div class="swiper-slide"><img src="img/Liderança.svg" alt="Livro sobre Liderança"></div>
+          <div class="swiper-slide"><img src="img/Guia Front-end.svg" alt="Guia sobre Front-End"></div>
+    ...
+        </div>
+       
+
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+
+        <!-- If we need scrollbar -->
+        <!-- <div class="swiper-scrollbar"></div> -->
+        </div>
+
+        <div class="card">
+          <!--1°linha-->
+          <div class="card__descrição">
+            <!--1°coluna-->
+            <div class="descrição">
+              <h3 class="descrição__título">Talvez você também se interesse por...</h3>
+              <h2 class="descrição__título-livro">Angular 11 e Firebase</h2> <!--Colocamos como título mais importante, pois esta com o nome do livro-->
+              <p class="descrição__texto">Construindo uma aplicação integrada com a plataforma do Google.</p>
+            </div>
+            <!--2°coluna-->
+            <img src="img/Juliana Agarikov.svg">
+          </div>
+            
+          <!--2°linha-->
+          <div class="card__botões">
+            <!--1°coluna-->
+            <ul class="botões">
+              <li class="botões__item"><img src="img/Favoritos.svg" alt="Favoritar livros"></li>
+              <li class="botões__item"><img src="img/Compras.svg" alt="Carrinho de Compras"></li>
+            </ul>
+            <!--2°coluna-->
+            <a href="#" class="botões__âncora">Saiba Mais</a>
+          </div>
+        </div>
+      </section>
+      <section class="tópicos">
+        <h2 class="tópicos__título">TÓPICOS VISITADOS RECENTEMENTE</h2>
+        <ul class="tópicos__lista">
+          <li class="tópicos__item">
+            <a href="#" class="tópicos__link">Android</a>
+          </li>
+          <li class="tópicos__item">
+            <a href="#" class="tópicos__link">Marketing Digital</a>
+          </li>
+          <li class="tópicos__item">
+            <a href="#" class="tópicos__link">Agile</a>
+          </li>
+          <li class="tópicos__item">
+            <a href="#" class="tópicos__link">Startups</a>
+          </li>
+          <li class="tópicos__item">
+            <a href="#" class="tópicos__link">HTML & CSS</a>
+          </li>
+          <li class="tópicos__item">
+            <a href="#" class="tópicos__link">Python</a>
+          </li>
+          <li class="tópicos__item">
+            <a href="#" class="tópicos__link">OO</a>
+          </li>
+          <li class="tópicos__item">
+            <a href="#" class="tópicos__link">Java</a>
+          </li>
+        </ul>
+      </section>
+      <section class="contato">
+        <h2 class="contato__título">Fique por dentro das novidades!</h2>
+        <p class="contato__texto">Atualizações de e-books, novos livros, promoções e outros.</p>
+        <input type="email" placeholder="Cadastre seu e-mail" class="contato__email">
+        
+      </section>
+
+      <hr /> <!--Faz a quebra de linha com um risco no meio. -->
+
+      <footer class="rodapé">
+        <h2 class="rodapé__título">Grupo Alura</h2>
+      </footer>
+
+      
+       
+       
+      <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+      <script>
+        const swiper = new Swiper('.swiper', {
+        // speed: 400, Se a troca fosse automática, porém, será manual
+        spaceBetween: 10, //Espaçamento entre cada slide em pixels
+        slidesPerView: 3,
+        pagination: {
+          el: '.swiper-pagination',
+          type:'bullets',
+        }
+        });
+      </script>
+    </body>
+</html>

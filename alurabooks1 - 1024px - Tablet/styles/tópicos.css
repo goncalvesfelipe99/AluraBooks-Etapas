@@ -1,0 +1,72 @@
+.tópicos{
+    background:var(--azul-degrade); /*Utilizamos a propriedade background para inserir a cor de fundo, porque é uma cor linear e não funcionaria a propriedade "background-color"*/
+    text-align:center; /*Trazendo o título e os links ao centro*/
+    padding:1em 0; /*Espaçamento da borda para dentro em 1em top e bottom e 0 para right e left. Espaçando da bora pra dentro o título.*/
+    
+}
+
+.tópicos__título {
+    color:var(--branco);
+    font-weight:300;
+    margin-bottom:1em; /*Espaçamento do título para lista. - Ver a observação do tópicos lista.*/
+   
+}
+
+.tópicos__lista {
+    display:flex;
+    flex-wrap:wrap; /*Utilizamos essa propriedade do FlexBox para quebrar a linha; Nossos links estavam em cima do outro colocando os links tudo na mesma linha. Ouseja, quando chega ao final da tela ele quebra linha colocando a outra parte do texto para baixo. */
+    justify-content:center; /*Trazendo o conteúdo ao centro.*/
+    /* color:var(--branco); Não funcionará aqui, pois tem que colocar no local correto que é na classe da âncora (link)*/
+    /* text-decoration:none; Não funcionará aqui, pois tem que colocar no local correto que é na classe da âncora (link )*/
+    /* margin-top:1em; Poderíamos espaçar aqui a lista do título, porém vamos fazer isso usando a classe do título. Ou seja, faremos o espaçamento do título para lista e não da lista para o título. usando a propriedade "margin-bottom". */
+
+}
+
+
+
+.tópicos__link {
+    text-decoration:none; /*Retirando o sublinhado*/
+    color:var(--branco); /*Cor do texto dos links*/
+    background-color:var(--laranja);
+    padding:1em;
+     /* margin:1em;  Lugar incorreto para separar os itens. Para isso, fazer essa configuração na classe "tópicos__item". */
+     font-size:14px;
+     font-weight:700;
+}
+
+.tópicos__item {
+    margin:2em 0.5em; /*Lugar correto para separar um item do outro. 
+    Espaçamento da borda para fora de 2em top e bottom e de 0.5em para as laterais right e left. Ou seja, espaçando os links do título  e, também, um link do outro.*/
+    
+
+}
+
+
+@media screen and (min-width: 1024px) {
+
+    /*Estamos usando a media query para aplicar um novo estilo para a nossa página web quando a mesma chegar no mínimo de largura de 1024px (Tablet).
+    Estamos colocando como 'min-width', porque começamos o nosso projeto fazendo por 'mobile-first', ou seja, começamos a fazendo por uma tela de celular. Quando começarmos fazendo por 'desktop-first', o mesmo se altera e faríamos por 'max-width'. */
+
+    .tópicos__título {
+        font-size: 24px;
+    }
+
+    .tópicos__link {
+        font-size: 24px;
+    }
+
+    .tópicos__item {
+        margin:3.5em 1em; /*Lugar correto para separar um item do outro. 
+        Espaçamento da borda para fora de 3.5em top e bottom e de 1em para as laterais right e left. Ou seja, espaçando os links do título e, também, um link do outro.*/
+        
+    
+    }
+
+
+    .tópicos__título {
+        margin: 1em 0 1.5em 0; /*Espaçamento da borda para fora de 1em top, 0 right, 1.5em bottom e de 0 para left.*/
+    }
+    
+
+
+}

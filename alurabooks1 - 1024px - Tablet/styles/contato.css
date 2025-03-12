@@ -1,0 +1,82 @@
+.contato {
+    background-color:var(--branco);
+    padding:1em; /*Espaçamento da borda para dentro para todos os lados.*/
+}
+
+.contato__título , 
+.contato__texto {
+    background: var(--azul-degrade); /*Estamos utilizando essa propriedade para inserir nos textos doS linkS esta cor linear-gradient.Pois esta cor é uma COR LINEAR, e para funcionar é necessário utilizar esta propriedade. Pois com a propriedade COLOR não funcionará.  
+    Porém, esta propriedade NÃO APLICA NA FONTE, e, para isso será necessário fazermos mais configurações como é que estão abaixo.*/
+    background-clip: text; /*Agora estamos utilizando esta propriedade com o valor "text" para 'prender' essa cor linear somente aonde possuir texto. Assim, ele ficará aplicado.*/
+    -webkit-background-clip: text; /*Estamos utilizando essas propriedades para que funcione esta aplicação que fizemos em outros tipos de navegadores. Por exemplo: Edge, Firefox, Opera, etc...*/
+    -webkit-text-fill-color: transparent; /*Estamos utilizando essas propriedades para que funcione esta aplicação que fizemos em outros tipos de navegadores. Por exemplo: Edge, Firefox, Opera, etc...*/
+
+
+}
+
+.contato__título {
+    font-size:18px; /*Tamanho das letras em unidade fixa pixels. Tamanho da fonte.*/
+    font-weight:500; /*Mediuim*//*Espessura das letras; Peso da fonte.*/
+   
+}
+
+.contato__texto {
+    font-weight:300; /*Light*/
+    margin:1em 0; /*Espaçamento da borda para fora de 1em top e bottom, e de 0 para os lados right e left; Espaçamento do texto para o título e do texto para o input.*/
+}
+
+.contato__email {
+    padding:1em; /*Espaçamento da borda para dentro de 1em*/
+    border: 1px solid var(--azul-escuro);
+    border-radius: 24px;
+    width:90%; /*Estamos fazendo a largura da borda ocupar 90% do espaço da tela. Com 100% ele saii da tela.*/
+    color:var(--azul-escuro); /*Cor do texto que será escrito dentro do placeholder.*/
+}
+
+.contato__email::placeholder {
+    /*Para conseguirmos acessar o placeholder na barra de pesquisa temos que fazer conforme selecionamos esta classe acima.*/
+    font-family:var(--fonte-principal);
+    font-size:16px;
+    font-weight:400;    
+    color:var(--azul-escuro);
+    background-image: url("../img/email.svg") ;
+    background-repeat: no-repeat;
+    background-position:0.1em; /*Posicionando melhor a figura da carta.*/
+    padding-left: 2em; /*Espaçamento da carta para o texto. Ou seja, demos um espaço da figura para texto a ocupando em 2em, isso equivale 32px;*/
+
+}
+
+@media screen and (min-width: 1024px) {
+
+    /*Estamos usando a media query para aplicar um novo estilo para a nossa página web quando a mesma chegar no mínimo de largura de 1024px (Tablet).
+    Estamos colocando como 'min-width', porque começamos o nosso projeto fazendo por 'mobile-first', ou seja, começamos a fazendo por uma tela de celular. Quando começarmos fazendo por 'desktop-first', o mesmo se altera e faríamos por 'max-width'. */
+
+    .contato {
+        display: flex; /*Habilitamos o FlexBox para podermos organizar os elementos dessa section. Habilitamos para deixarmos os elementos dessa section em linha (row). Assim, deixando nossso projeto conforme o Figma, e deixando a barra de email de maneira lateral ao título e ao texto.*/
+        margin: 3em 2em; /*Espaçamento da borda para fora em 3em top e bottom e de 2em right e left.*/
+
+        /*Feito após o contato__email; Tamanho da barra de email*/
+        justify-content: space-between; /*Separando os elementos da section; Textos e a barra de email.*/
+        align-items:center; /*Alinhando todo conteúdo ao centro. O efeito do resultado foi deixar do tamanho correto a barra de email.*/
+        padding: 3em 10em; /*Espaçamento da borda para dentro de 3em top e bottom, e de 10em right e left.*/
+
+    }
+
+    .contato__email {
+        width: 40%; /*Largura correta para que a barra de email apareça de tamanho correto */
+        
+    }
+
+    .contato__descrição {
+        /* margin-right: 1em; Espaçando o conteúdo de texto a barra de email. */
+        width:50%; /*Largura do conteúdo de descrição, no qual, fazemos o texto quebrar a linha aonde queremos.*/
+        
+    }
+
+    .contato__título {
+        font-size:24px; /*Tamanho das letras em unidade fixa pixels. Tamanho da fonte.*/
+        
+       
+    }
+
+}

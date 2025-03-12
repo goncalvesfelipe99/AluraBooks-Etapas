@@ -1,0 +1,95 @@
+.banner {
+    background: var(--azul-degrade); /*Estamos utilizando essa propriedade, pois a cor que esta sendo utilizada é uma cor linear-gradient. Quando é somente uma cor nós utilizamos a propriedade color.*/
+    color:var(--branco);
+    text-align:center; /*Selecionando tudo que há dentro dessa classe ao centro (elementos filhos). Lembrando que essa propriedade não somente alinha texto inline, mas também outros elementos.*/
+    padding: 2.5em 2em; /*Espaçamento da borda para dentro; 2.5em pa*/
+    
+    
+}
+
+.banner__título {
+    /*Não será necessário inserir o tipo de letra do texto, pois já foi inserido como padrão no body, em styles.css.*/
+
+
+    font-size:1.125em; /*Utilizamos unidade relativa. Em pixels seria 18px.*/
+    font-weight:700; /*Bold*/
+    
+
+}
+
+.banner__texto {
+    /*Não será necessário inserir o tamanho do texto e o tipo de letra do texto, pois já foi inserido como padrão no body, em styles.css.*/
+
+    font-weight: 500; /*Medium*/
+
+    /*Feito após a configuração do padding na classe banner.*/
+
+
+    margin:1em 0; /*Precisávamos de espaçamento entre o título e o input, portanto inserimos um espaçamento de 1em para top e bottom e 0 para right e left. Lembrando que 1em equivale a 16px.*/
+}
+
+.banner__pesquisa {
+    background-color:transparent ; /*Estamos utilizando esse valor, pois a tela de fundo do banner já é a cor que queremos.*/
+    color:var(--branco);/*Será a cor do texto quando escrevermmos dentro da barra de pesquisa*/
+    border: 1px solid var(--branco); /*Uma borda de tamanho de 1px, de tipo sólida e de cor branca*/
+    border-radius: 24px; /*Arredondamento da borda.*/
+    padding:1em; /*Espaçamento da borda para de 1em que equivale 16px.*/
+    width:100%; /*Largura da barra de pesquisa em 100% do banner.*/
+
+
+}
+
+.banner__pesquisa::placeholder {
+    /*Para conseguirmos acessar o placeholder na barra de pesquisa temos que fazer conforme selecionamos esta classe acima.*/
+    background-image:url("../img/Pesquisa.svg");/*Para inserirmos a imagem da Lupa, nós tivemos que buscá-la na pasta img. Colocamos 2 pontos porque 1 ponto voltaria para a página styles e mais um iria para pasta img onde está a imagem.*/
+    background-repeat:no-repeat; /*Estava repetindo a imagem, portanto demos o valor de não repetir*/
+    /* background-position: ; Aproximando a lupa do texto */
+    color:var(--branco); /*Cor do texto*/
+    text-align: center; /*Alinhamos o texto do placeholder ao centro*/
+    /*As configurações do body não funcionaram no placeholder, portanto vamos colocá-las novamente*/
+    font-size: 14px; /*Tamanho da letra*/
+    font-family:var(--fonte-principal); /*Tipo de letra ee texto*/
+    font-weight:400; /*Regular*/
+
+}
+
+@media screen and (min-width: 1024px) {
+
+    /*Estamos usando a media query para aplicar um novo estilo para a nossa página web quando a mesma chegar no mínimo de largura de 1024px (Tablet).
+    Estamos colocando como 'min-width', porque começamos o nosso projeto fazendo por 'mobile-first', ou seja, começamos a fazendo por uma tela de celular. Quando começarmos fazendo por 'desktop-first', o mesmo se altera e faríamos por 'max-width'. */
+
+
+    .banner__título {
+        font-size: 36px;
+    }
+
+    .banner__pesquisa {
+        width: 50%; /*Diminuindo o tamanho da barra de pesquisa para 50%.*/
+    }
+
+    .banner__pesquisa::placeholder {
+        background-position: 6em; /*Aproximando a posição da lupa ao texto*/
+    }
+    
+
+}
+
+@media screen and (min-width: 1728px) {
+    .banner__pesquisa {
+        width:35%; /*Diminuindo a largura da barra de pesquisa do banner*/
+        padding: 1.5em ; /*Aumentando o espaçamento da borda para dentro da barra de pesquisa. Ou seja, aumentando o espaçamento da barra para o texto.*/
+        margin: 2em 0; /*Espaçamento da borda para fora da barra de pesquisa em 2em top e bottom e 0 para right e left. Ou seja, espaçamento da barra de pesquisa para o texto (top) e espaçamento da barra de pesquisa para próprio banner (bottom). Assim, aumentando o próprio banner para que fique parecido com o Figma.*/
+    
+     }
+    
+     .banner__pesquisa::placeholder {
+        background-position:10em; /*Posicionando a lupa mais próxima do texto do placeholder.*/
+    }
+    
+    .banner {
+        padding: 4em 0 ; /*Aumentando o tamanho do banner em 4em top e bottom, e 0 right e left. Ou seja, aumentando o espaço ocupado pelo banner.*/
+    }
+    
+       
+
+}

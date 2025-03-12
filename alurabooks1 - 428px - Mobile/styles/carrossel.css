@@ -1,0 +1,77 @@
+.carrossel__título {
+    background-color: var(--branco);
+    color:var(--laranja);
+    text-align:center;
+    font-weight:700; /*Bold*/
+    padding:1em 0 0.5em 0; /*Espaçamento da borda para dentro; top,right,bottom e left*/
+    font-size:1.125em; /*Unidade relativa. Equivale a 18px.*/
+    text-transform:uppercase; /*Colocando o texto em maiúsculo*/
+
+}
+
+.swiper-slide img {
+    /*Selecionamos a classe do carrossel aonde estão as nossas imagens.*/
+    width:100%; /*Para uma imagem não ficar uma em cima da outra, demos uma largura de 100%*/
+}
+
+.swiper-button-prev , .swiper-button-next {
+    display:none; /*Retiramos os botões setas do carrossel*/
+
+}
+
+.swiper-pagination {
+    position:initial; /*Posição das bolinhas estavam padrão, para colocarmos onde queríamos colocamos na posição inicial.*/
+    margin: 0.5em 0; /*Espaçamento da borda para fora de 0.5em topo e baixo e de 0 right e left.*/
+}
+
+.card__descrição {
+    display:flex; /*Utilizamos o Flexbox para que os elementos filhos dessa classe ficassem em linha uma do lado da outra. Neste caso, os textos de um lado e a figura do livro na outra. Ou seja, cada um em uma coluna. Textos na 1°coluna e a figura na 2°coluna.*/
+    justify-content: space-between; 
+    margin-bottom: 0.5em;
+}
+
+.card__botões {
+    display:flex; /*Utilizamos o Flexbox para que os elementos filhos dessa classe ficassem em linha uma do lado da outra. Neste caso, as imagens de favoritos e compras ao lado da âncora "Saiba Mais".*/
+    justify-content: space-between; 
+
+}
+
+.botões{
+    display:flex; /*Utilizamos o Flexbox para que os elementos filhos dessa classe ficassem em linha uma do lado da outra. Neste caso, as imagens de favoritos e compras.*/
+}
+
+.card {
+    background: var(--branco); /* Variável - cor branca*/
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); /*Caixa sombreada - Suas dimensões*/
+    border-radius: 10px; /*Arredondamento da borda*/
+    margin:1em; /*Espaçamento da borda para fora em 1em;*/
+    padding: 1em; /*Espaçamento da borda para dentro em 1em;*/
+}
+
+.descrição__título {
+    color:var(--laranja);
+    font-weight: 700; /*Bold*/
+}
+
+.descrição__título-livro {
+    color:var(--azul-escuro);
+    font-size:18px;
+    font-weight:700; /*Bold*/
+    margin:0.5em 0; /*Espaçamento da borda pra fora; top e bottom. espaçamento do título do livro para com o texto e o outro título acima. */
+}
+
+.descrição__texto {
+    color:var(--preto);
+
+}
+
+.botões__item {
+    margin:0 0.5em; /*As figuras dos botões estavam próximas uma da outra. Portanto, demos um pequeno espaço entre elas. Espaços laterais.*/
+}
+.botões__âncora {
+    background-color:var(--laranja);
+    color:var(--branco);
+    text-decoration:none; /*Retirando o sublinhado, pois é uma âncora (link). Como somente é um link de redirecionamento para uma outra página e não de execução de uma função, estamos usando uma âncora para está função e não um botão.*/
+    padding: 1em 2.2em; /*Espaçamento da borda para dentro; Assim o centralizando. - Espaçamento da borda para dentro top e bottom de 1em e laterais de 2.2em.*/
+    font-weight:700; /*Bold*/
+}

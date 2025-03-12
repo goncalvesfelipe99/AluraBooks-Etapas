@@ -1,0 +1,73 @@
+hr {
+    margin:0; /*Zerando a margem desse quebrador de linha*/
+}
+
+.rodapé {
+    background-color:var(--branco);
+    padding:1em; /*Espaçamento da borda para dentro de 1em para todos os lados. */
+}
+
+.lista-rodapé {
+    display: none; /*Para que a lista não apareça. Esta lista só pode aparecer na largura de tela de 1024px. Dentro da media query temos que fazer a configuração para que a lista apareça novamente.*/
+}
+
+@media screen and (min-width: 1024px) {
+
+    /*Estamos usando a media query para aplicar um novo estilo para a nossa página web quando a mesma chegar no mínimo de largura de 1024px (Tablet).
+    Estamos colocando como 'min-width', porque começamos o nosso projeto fazendo por 'mobile-first', ou seja, começamos a fazendo por uma tela de celular. Quando começarmos fazendo por 'desktop-first', o mesmo se altera e faríamos por 'max-width'. */
+
+    .rodapé {
+        display: flex; /*Habilitamos o Flexbox para organizar os 'elementos filhos' desta classe. Como o padrão do Flexbox é organizar seus elementos filhos como contanier,ou seja, em linha, nós estamos o utilizando para isso.*/
+        justify-content: space-around; /*Estamos usando essa propriedade do Flexbox com o valor "space-around" , porque ele faz um espaçamento igual entre todos os flex-itens, e, também, entre eles e a borda da página. Se usassemos o valor de propriedade "space-between" não daria certo, porque  ele não faria o espaçamento entre esses elementos, ele só faria no meio desses elementos. */
+
+        
+    }
+
+    .rodapé__título {
+        font-size: 24px;
+        padding-top: 2em; /*Espaçamento da borda para detro de 1em.*/
+    }
+
+    .lista-rodapé__título {
+        padding: 2.5em 0; /*Espaçamento da borda para dentro top e bottom de  , e de 0 para right e left*/
+        font-size: 14px;
+        color:var(--cinza);
+        text-transform: uppercase; /*Transformar os títulos das listas em maiúsculo*/
+        
+    }
+
+    .lista-rodapé__link {
+        font-size: 14px;
+        color: var(--cinza-escuro);
+        text-decoration:none; /*Retirar o sublinhado de link (âncora)*/
+
+        /*Feito após .lista-rodapé__item da parte do FLEXBOX*/
+        margin-left: 0.6em; /*Espaçamento da borda para fora á esquerda. Estamos espaçando os textos dos links das figuras.*/
+    }
+
+    .lista-rodapé__item{
+        padding:1em; /*Espaçamento entre os itens.*/
+        display: flex; /*Estamos utilizando o Flexbox aqui para alinhar as figuras ao texto dessas figuras.*/
+        align-items:center; /*Alinhando ao centro as figuras ao texto.*/
+        
+    }
+
+    .lista-rodapé {
+        display: block; /*Para que a lista apareça na tela quando a mesma alcançar a largura de tela de 1024px. - Tablet */
+    }
+}
+
+@media screen and (min-width: 1728px) {
+
+    .lista-rodapé {
+
+        border-left: 1px solid var(--cinza); /*Estamos inserindo 1 borda em cada lista (3 bordas), sendo que elas são sólidas e de cor cinza.*/
+        padding-left:1em; /*Estamos espaçando as 3 bordas de suas respectivas listas em 1em.*/
+
+    }
+
+    .rodapé {
+        padding: 3em 0; /*Espaçamento da borda para dentro; Estamos aumentando o espaço ocupado por essa classe em 3em top e bottom, e 0 right e left.  */
+    }
+
+}
